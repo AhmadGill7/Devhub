@@ -123,7 +123,7 @@ export function BugReportPreview({ bugReport, onBack }: BugReportPreviewProps) {
       </div>
 
       {/* Tags and Upvotes */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 mt-4">
         <div className="flex flex-wrap gap-2">
           {bugReport?.tags?.map((tag, index) => (
             <span
@@ -139,7 +139,25 @@ export function BugReportPreview({ bugReport, onBack }: BugReportPreviewProps) {
           <span>{bugReport?.upvotes || 0}</span>
         </button>
       </div>
-
+      <div className="border-t dark:border-gray-700 pt-6">
+        {/* Comment Form */}
+        <div className="mt-6">
+          <textarea
+            placeholder="Add a comment..."
+            className="w-full px-3 py-2 border  rounded-lg  bg-[var(--bg-primary)] text-[var(--text-primary)]"
+            rows={4}
+          />
+          <div className="mt-2 flex justify-end">
+            <button
+              disabled
+              type="submit"
+              className="btn bg-[var(--accent)] text-[var(--bg-primary)] dark:bg-[var(--accent)] dark:text-[var(--bg-primary)] hover:bg-[var(--accent)]"
+            >
+              Post Comment
+            </button>
+          </div>
+        </div>
+      </div>
       {bugReport.is_resolved && (
         <div className="mb-4 p-3 bg-green-100 dark:bg-green-900 rounded-lg">
           <div className="flex items-center text-green-700 dark:text-green-200">
